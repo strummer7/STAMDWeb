@@ -1,11 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>STAMDWeb — Home</title>
+  <style>
+    :root{
+      --bg:#f6f8fb; --card:#ffffff; --accent:#1e88e5; --muted:#6b7280;
+      --radius:10px; --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg,#eef3fb 0%,var(--bg) 100%); color:#0f172a;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    .container{max-width:var(--max-width);margin:0 auto;padding:24px;}
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 0;}
+    .brand{display:flex;gap:12px;align-items:center;text-decoration:none;color:inherit}
+    .logo{
+      width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#6dd3ff);
+      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;
+      box-shadow:0 6px 20px rgba(30,136,229,0.12);
+    }
+    nav{display:flex;gap:12px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px}
+    nav a:hover{background:#eef5ff;color:var(--accent)}
+    .cta{background:var(--accent);color:white;padding:8px 14px;border-radius:10px;text-decoration:none}
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;padding:36px 0}
+    .hero h1{font-size:28px;margin:0 0 10px 0;line-height:1.05}
+    .hero p{color:var(--muted);margin:0 0 18px 0}
+    .hero .buttons{display:flex;gap:12px}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:0 6px 20px rgba(15,23,42,0.06);padding:18px}
+    .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .feature{padding:14px;border-radius:10px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid #eef4ff}
+    .feature h4{margin:0 0 6px 0}
+    .muted{color:var(--muted);font-size:14px}
+    /* Footer */
+    footer{padding:28px 0;color:var(--muted);font-size:14px}
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr; text-align:center}
+      .feature-grid{grid-template-columns:repeat(2,1fr)}
+      nav{display:none}
+      .mobile-nav-toggle{display:block}
+    }
+    @media (max-width:520px){
+      .feature-grid{grid-template-columns:1fr}
+      .logo{width:40px;height:40px}
+    }
+    .mobile-nav-toggle{display:none;background:transparent;border:0;padding:6px;font-size:20px}
+    .small{font-size:13px}
+  </style>
 </head>
 <body>
-    
+  <div class="container">
+    <header>
+      <a class="brand" href="#">
+        <div class="logo">S</div>
+        <div>
+          <div style="font-weight:600">STAMDWeb</div>
+          <div class="small muted">Student Admin Dashboard</div>
+        </div>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="#">Home</a>
+        <a href="#">Students</a>
+        <a href="#">Courses</a>
+        <a href="#">Reports</a>
+        <a class="cta" href="#">Get Started</a>
+      </nav>
+
+      <button class="mobile-nav-toggle" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <h1>Welcome to STAMDWeb — Student admin made simple</h1>
+          <p class="muted">Manage students, courses and reports from one lightweight interface. Fast, responsive and accessible.</p>
+
+          <div class="buttons">
+            <a class="cta" href="#">Create student</a>
+            <a class="muted" href="#" style="align-self:center;padding:8px 12px;border-radius:8px">Learn more</a>
+          </div>
+
+          <div class="card" style="margin-top:18px">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div class="small muted">Active students</div>
+                <div style="font-size:20px;font-weight:700">1,248</div>
+              </div>
+              <div class="small muted">Updated just now</div>
+            </div>
+            <div class="feature-grid" style="margin-top:14px">
+              <div class="feature">
+                <h4>Attendance</h4>
+                <div class="muted">Quick take and exportable reports.</div>
+              </div>
+              <div class="feature">
+                <h4>Enrollment</h4>
+                <div class="muted">Manage course signups easily.</div>
+              </div>
+              <div class="feature">
+                <h4>Analytics</h4>
+                <div class="muted">See trends and performance at a glance.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="card" aria-hidden="false">
+            <h3 style="margin-top:0">Quick actions</h3>
+            <ul style="padding-left:18px;margin:10px 0;color:var(--muted)">
+              <li>Add new student</li>
+              <li>Import data</li>
+              <li>Generate report</li>
+            </ul>
+            <div style="margin-top:12px">
+              <a href="#" class="cta" style="display:inline-block;width:100%;text-align:center">Open dashboard</a>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <div class="muted small">© <span id="year"></span> STAMDWeb — ADvTECH Ltd</div>
+        <div style="display:flex;gap:12px">
+          <a class="muted" href="#">Privacy</a>
+          <a class="muted" href="#">Terms</a>
+          <a class="muted" href="#">Help</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // simple mobile menu behavior (shows a prompt for this example)
+    function toggleMenu(){
+      const links = ['Home','Students','Courses','Reports','Get Started'];
+      const choice = prompt('Quick nav: ' + links.map((l,i)=> (i+1)+'. '+l).join(' — '));
+      if(choice){
+        const i = parseInt(choice) - 1;
+        if(!isNaN(i) && links[i]) alert('Navigate to: ' + links[i]);
+      }
+    }
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
